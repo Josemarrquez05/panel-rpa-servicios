@@ -6,10 +6,10 @@
 const AUTH = {
     // Contrasenas hasheadas con SHA-256
     users: {
-        'servicios': '71b5a564ce86f337ed95ea4f8e8d1054ec4f0cf621f9c1a3ca6608b18fc97912'
+        'admin': '04445e6487736590d1ef50186b414e737e0164683cbbec64e00e73c000fd3bef'
     },
     robots: {
-        'servicios': ['uber', 'rappi', 'didi', 'cloud']
+        'admin': ['uber', 'rappi', 'didi', 'cloud']
     }
 };
 
