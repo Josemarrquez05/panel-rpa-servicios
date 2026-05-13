@@ -1,6 +1,6 @@
 # Panel RPA Servicios
 
-Aqui esta la Version local del panel RPA orientada a los servicios:
+Aqui esta la version actual del panel RPA orientada a los servicios:
 
 - RAPPI
 - DIDI
@@ -17,22 +17,31 @@ Aqui esta la Version local del panel RPA orientada a los servicios:
 
 ## Usuarios
 
-Cada servicio tiene su propio usuario:
+Actualmente el panel usa un solo usuario con los sprints asignados:
 
-- `rappi`
-- `didi`
-- `uber`
-- `cloud`
+- `Admin`
 
-Las contrasenas actuales son:
+Credenciales actuales:
 
-- `rappi`: `Rappi2026!`
-- `didi`: `Didi2026!`
-- `uber`: `Uber2026!`
-- `cloud`: `Cloud2026!`
+- `usuario`: `Admin`
+- `contrasena`: `Admin2026!`
+
+## Vista del panel
+
+Cuando el usuario entra, puede ver la lista de sprints asignados:
+
+- `Sprint UBER`
+- `Sprint RAPPI`
+- `Sprint DIDI`
+- `Sprint CLAUD`
+
+Cada sprint se muestra como panel desplegable y, al dar clic, abre:
+
+- tabla de pasos
+- grafica de estados
 
 ## Notas
 
-- Todo queda local 
+- El panel funciona en local con Live Server o publicado en GitHub Pages.
 - Los archivos JSON ya estan listos para ser reemplazados por la salida real de UiPath.
-
+- El login esta hecho en frontend, por lo que sirve para control basico y demostracion, no como seguridad empresarial completa.
