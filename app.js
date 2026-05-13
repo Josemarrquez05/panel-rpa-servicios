@@ -14,10 +14,10 @@ const CONFIG = {
 };
 
 const FLOW_NAMES = {
-    cloud: 'CLAUD',
-    uber: 'UBER',
-    didi: 'DIDI',
-    rappi: 'RAPPI'
+    cloud: 'Sprint CLAUD',
+    uber: 'Sprint UBER',
+    didi: 'Sprint DIDI',
+    rappi: 'Sprint RAPPI'
 };
 
 let allRobotsData = [];
@@ -173,7 +173,7 @@ function buildPanels(robotList) {
     
     document.getElementById('process-name').textContent =
         robotList.length > 1
-            ? robotList.map(getFlowDisplayName).join(' / ')
+            ? 'Sprints asignados'
             : getFlowDisplayName(robotList[0]);
 }
 
