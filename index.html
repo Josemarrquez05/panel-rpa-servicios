@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel RPA Servicios</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main id="login-screen" class="login-layout">
+        <section class="login-card">
+            <p class="kicker">RIBU25MHAUCE01_PLC_CONCILIACION</p>
+            <h1>Dashboard de Descargas</h1>
+            <p class="login-copy">
+                Monitoreo local de los flujos de descarga del robot.
+            </p>
+            <div class="login-actions">
+                <form id="login-form" class="login-form">
+                    <select id="user-select" required>
+                        <option value="">Seleccionar servicio...</option>
+                        <option value="cloud">CLAUD</option>
+                        <option value="uber">UBER</option>
+                        <option value="didi">DIDI</option>
+                        <option value="rappi">RAPPI</option>
+                    </select>
+                    <input type="password" id="password-input" placeholder="Contrasena" required>
+                    <div id="login-error" class="login-error hidden"></div>
+                    <button type="submit" class="login-button">Iniciar sesion</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <main id="dashboard-screen" class="layout hidden">
+        <section class="topbar">
+            <div class="title-block">
+                <div class="live-line">
+                    <span class="live-dot"></span>
+                    <p class="kicker">Seguimiento de descargas RPA</p>
+                </div>
+                <div class="logout-container">
+                    <button id="logout-button" class="logout-button">Cerrar sesion</button>
+                </div>
+                <h1 id="process-name">Cargando proceso...</h1>
+                <p class="subtitle">
+                    Panel local RPA Servicios.
+                </p>
+            </div>
+        </section>
+
+        <section class="overview-row">
+            <article class="overview-card">
+                <span class="overview-label">Total de pasos</span>
+                <strong class="overview-value" id="total-steps">0</strong>
+                <small class="overview-note">Visualizados desde JSON</small>
+            </article>
+            <article class="overview-card">
+                <span class="overview-label">Ultima lectura</span>
+                <strong class="overview-mini" id="last-updated">--:--:--</strong>
+                <small class="overview-note">Refresco automatico cada 2s</small>
+            </article>
+            <article class="overview-card">
+                <span class="overview-label">Ultima actualizacion</span>
+                <strong class="overview-mini" id="last-db-updated">--:--:--</strong>
+                <small class="overview-note">Marca del robot</small>
+            </article>
+        </section>
+
+        <section class="notice-card hidden" id="db-notice">
+            <strong id="notice-title">Estado</strong>
+            <span id="notice-message"></span>
+        </section>
+
+        <section class="toolbar">
+            <div class="search-box">
+                <label for="search-input">Buscar paso</label>
+                <input id="search-input" type="text" placeholder="Ej. descarga, login, reporte, correo">
+            </div>
+            <div class="filter-box">
+                <label for="status-filter">Filtrar por estado</label>
+                <select id="status-filter">
+                    <option value="Todos">Todos</option>
+                    <option value="Finalizado">Finalizado</option>
+                    <option value="En proceso">En proceso</option>
+                    <option value="Con error">Con error</option>
+                    <option value="Sin comenzar">Sin comenzar</option>
+                </select>
+            </div>
+            <div class="toolbar-actions">
+                <button id="refresh-button" type="button">Actualizar ahora</button>
+            </div>
+        </section>
+
+        <section id="panels-container" class="panels-container"></section>
+    </main>
+
+    <script src="auth.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

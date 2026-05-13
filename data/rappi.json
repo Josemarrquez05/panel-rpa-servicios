@@ -1,0 +1,35 @@
+﻿{
+    "processName":  "RAPPI",
+    "lastUpdated":  "13:32:02",
+    "lastDatabaseUpdate":  "13:32:02",
+    "steps":  [
+                  {
+                      "step_number":  1,
+                      "step_name":  "Generar y Descargar Archivo",
+                      "status":  "En proceso",
+                      "description":  "Ejecuta el bloque principal de generación y descarga del reporte.",
+                      "updated_at":  "13:32:02"
+                  },
+                  {
+                      "step_number":  2,
+                      "step_name":  "Log In",
+                      "status":  "Sin comenzar",
+                      "description":  "Ingresa al portal de Rappi con las credenciales configuradas.",
+                      "updated_at":  "13:32:02"
+                  },
+                  {
+                      "step_number":  3,
+                      "step_name":  "Generar Archivo",
+                      "status":  "Sin comenzar",
+                      "description":  "Selecciona filtros y solicita la creación del reporte.",
+                      "updated_at":  "13:32:02"
+                  },
+                  {
+                      "step_number":  4,
+                      "step_name":  "Descargar Archivo",
+                      "status":  "Sin comenzar",
+                      "description":  "Espera la descarga y mueve el archivo generado.",
+                      "updated_at":  "13:32:02"
+                  }
+              ]
+}
