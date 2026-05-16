@@ -124,7 +124,13 @@ function buildPanels(robotList) {
                 aria-controls="${panelId}-content"
             >
                 <span class="panel-header-main">
-                    <h2 id="${panelId}-name">${escapeHtml(getFlowDisplayName(robotId))}</h2>
+                    <span class="panel-title-block">
+                        <h2 id="${panelId}-name">${escapeHtml(getFlowDisplayName(robotId))}</h2>
+                        <span class="panel-meta-row">
+                            <span class="panel-meta" id="${panelId}-duration">Duracion: --:--:--</span>
+                            <span class="panel-meta" id="${panelId}-started">Inicio: --</span>
+                        </span>
+                    </span>
                 </span>
                 <span class="panel-header-side">
                     <span class="db-chip">JSON + JS</span>
@@ -259,6 +265,7 @@ function renderPanel(index, data) {
     const robotId = currentRobotList[index];
     
     document.getElementById(`${panelId}-name`).textContent = getFlowDisplayName(robotId);
+    updatePanelMeta(panelId, data);
     if (currentRobotList.length === 1 && robotId) {
         document.getElementById('process-name').textContent = getFlowDisplayName(robotId);
     }
@@ -272,10 +279,21 @@ function renderPanelEmpty(index) {
     const panelId = `panel-${index}`;
     const robotId = currentRobotList[index];
     document.getElementById(`${panelId}-name`).textContent = getFlowDisplayName(robotId);
+    updatePanelMeta(panelId, null);
     document.getElementById(`${panelId}-body`).innerHTML = `
         <tr><td colspan="5" class="empty-state">Esperando datos del robot...</td></tr>
     `;
     updatePanelChart(panelId, {});
+}
+
+function updatePanelMeta(panelId, data) {
+    const durationEl = document.getElementById(`${panelId}-duration`);
+    const startedEl = document.getElementById(`${panelId}-started`);
+    const duration = data && data.durationLabel ? data.durationLabel : '--:--:--';
+    const startedAt = data && data.startedAt ? data.startedAt : '--';
+
+    if (durationEl) durationEl.textContent = `Duracion: ${duration}`;
+    if (startedEl) startedEl.textContent = `Inicio: ${startedAt}`;
 }
 
 function renderPanelTable(panelId, steps) {

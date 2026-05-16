@@ -745,6 +745,25 @@ tbody tr:nth-child(even) {
     gap: 12px;
 }
 
+.panel-title-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.panel-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.panel-meta {
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
 .panel-header-side {
     margin-left: 16px;
 }
@@ -874,6 +893,10 @@ tbody tr:nth-child(even) {
 @media (max-width: 640px) {
     .panel-header {
         padding: 14px 16px;
+    }
+
+    .panel-header-side {
+        margin-left: 10px;
     }
     
     .panel-body {
