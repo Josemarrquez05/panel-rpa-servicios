@@ -1,0 +1,89 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="PublicarEstadoGitHub" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="io_rutaJson_Str" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_nombreSprint_Str" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_pasoActual_Str" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_publicarGitHub_Str" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_gitHubOwner_Str" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_gitHubRepo_Str" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_gitHubBranch_Str" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_gitHubToken_Str" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_gitHubRutaBaseRepo_Str" Type="InOutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>790,520</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>PublicarEstadoGitHub_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="40">
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="40">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence DisplayName="Publicar estado en GitHub" sap:VirtualizedContainerService.HintSize="564,392" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Plantilla comun para publicar en GitHub el JSON ya actualizado por el sprint. Si falta token o configuracion, sale sin detener el robot." Code="Try&#xA;    Dim publicarGitHubTexto As String = If(io_publicarGitHub_Str, &quot;&quot;).Trim()&#xA;    If Not publicarGitHubTexto.Equals(&quot;True&quot;, StringComparison.OrdinalIgnoreCase) Then&#xA;        Return&#xA;    End If&#xA;&#xA;    Dim rutaArchivoLocal As String = If(io_rutaJson_Str, &quot;&quot;).Trim()&#xA;    Dim ownerGitHub As String = If(io_gitHubOwner_Str, &quot;&quot;).Trim()&#xA;    Dim repoGitHub As String = If(io_gitHubRepo_Str, &quot;&quot;).Trim()&#xA;    Dim ramaGitHub As String = If(io_gitHubBranch_Str, &quot;&quot;).Trim()&#xA;    Dim tokenGitHub As String = If(io_gitHubToken_Str, &quot;&quot;).Trim()&#xA;    Dim rutaBaseRepo As String = If(io_gitHubRutaBaseRepo_Str, &quot;data&quot;).Trim()&#xA;&#xA;    If String.IsNullOrWhiteSpace(rutaArchivoLocal) OrElse Not System.IO.File.Exists(rutaArchivoLocal) Then&#xA;        Return&#xA;    End If&#xA;&#xA;    If String.IsNullOrWhiteSpace(ownerGitHub) OrElse String.IsNullOrWhiteSpace(repoGitHub) OrElse String.IsNullOrWhiteSpace(tokenGitHub) Then&#xA;        Return&#xA;    End If&#xA;&#xA;    If String.IsNullOrWhiteSpace(ramaGitHub) Then&#xA;        ramaGitHub = &quot;main&quot;&#xA;    End If&#xA;&#xA;    If String.IsNullOrWhiteSpace(rutaBaseRepo) Then&#xA;        rutaBaseRepo = &quot;data&quot;&#xA;    End If&#xA;&#xA;    Dim nombreArchivoJson As String = System.IO.Path.GetFileName(rutaArchivoLocal)&#xA;    If String.IsNullOrWhiteSpace(nombreArchivoJson) Then&#xA;        Return&#xA;    End If&#xA;&#xA;    Dim rutaRepositorio As String = rutaBaseRepo.Replace(&quot;\&quot;, &quot;/&quot;).Trim(&quot;/&quot;c)&#xA;    If String.IsNullOrWhiteSpace(rutaRepositorio) Then&#xA;        rutaRepositorio = nombreArchivoJson&#xA;    Else&#xA;        rutaRepositorio = rutaRepositorio &amp; &quot;/&quot; &amp; nombreArchivoJson&#xA;    End If&#xA;&#xA;    Dim rutaRepositorioUrl As New System.Text.StringBuilder()&#xA;    For Each segmentoRuta As String In rutaRepositorio.Split(&quot;/&quot;c)&#xA;        If Not String.IsNullOrWhiteSpace(segmentoRuta) Then&#xA;            If rutaRepositorioUrl.Length &gt; 0 Then&#xA;                rutaRepositorioUrl.Append(&quot;/&quot;)&#xA;            End If&#xA;            rutaRepositorioUrl.Append(Uri.EscapeDataString(segmentoRuta.Trim()))&#xA;        End If&#xA;    Next&#xA;&#xA;    If rutaRepositorioUrl.Length = 0 Then&#xA;        Return&#xA;    End If&#xA;&#xA;    Dim urlBase As String = &quot;https://api.github.com/repos/&quot; &amp; Uri.EscapeDataString(ownerGitHub) &amp; &quot;/&quot; &amp; Uri.EscapeDataString(repoGitHub) &amp; &quot;/contents/&quot; &amp; rutaRepositorioUrl.ToString()&#xA;    Dim urlConsulta As String = urlBase &amp; &quot;?ref=&quot; &amp; Uri.EscapeDataString(ramaGitHub)&#xA;    Dim shaArchivo As String = &quot;&quot;&#xA;    Dim contenidoArchivoBase64 As String = Convert.ToBase64String(System.IO.File.ReadAllBytes(rutaArchivoLocal))&#xA;&#xA;    Try&#xA;        System.Net.ServicePointManager.SecurityProtocol = CType(3072, System.Net.SecurityProtocolType)&#xA;    Catch&#xA;    End Try&#xA;&#xA;    Using clienteConsulta As New System.Net.WebClient()&#xA;        clienteConsulta.Encoding = System.Text.Encoding.UTF8&#xA;        clienteConsulta.Headers(&quot;Authorization&quot;) = &quot;Bearer &quot; &amp; tokenGitHub&#xA;        clienteConsulta.Headers(&quot;Accept&quot;) = &quot;application/vnd.github+json&quot;&#xA;        clienteConsulta.Headers(&quot;X-GitHub-Api-Version&quot;) = &quot;2022-11-28&quot;&#xA;        clienteConsulta.Headers(&quot;User-Agent&quot;) = &quot;UiPath-RPA-Panel&quot;&#xA;&#xA;        Try&#xA;            Dim respuestaGet As String = clienteConsulta.DownloadString(urlConsulta)&#xA;            Dim indiceSha As Integer = respuestaGet.IndexOf(&quot;&quot;&quot;sha&quot;&quot;&quot;, StringComparison.OrdinalIgnoreCase)&#xA;            If indiceSha &gt;= 0 Then&#xA;                indiceSha = respuestaGet.IndexOf(&quot;:&quot;, indiceSha)&#xA;                If indiceSha &gt;= 0 Then&#xA;                    indiceSha = respuestaGet.IndexOf(&quot;&quot;&quot;&quot;, indiceSha)&#xA;                    If indiceSha &gt;= 0 Then&#xA;                        indiceSha = indiceSha + 1&#xA;                        Dim finSha As Integer = respuestaGet.IndexOf(&quot;&quot;&quot;&quot;, indiceSha)&#xA;                        If finSha &gt; indiceSha Then&#xA;                            shaArchivo = respuestaGet.Substring(indiceSha, finSha - indiceSha)&#xA;                        End If&#xA;                    End If&#xA;                End If&#xA;            End If&#xA;        Catch exWeb As System.Net.WebException&#xA;            Dim respuestaHttp As System.Net.HttpWebResponse = TryCast(exWeb.Response, System.Net.HttpWebResponse)&#xA;            If respuestaHttp Is Nothing OrElse respuestaHttp.StatusCode &lt;&gt; System.Net.HttpStatusCode.NotFound Then&#xA;                Return&#xA;            End If&#xA;        End Try&#xA;    End Using&#xA;&#xA;    Dim mensajeCommit As String = &quot;Actualiza &quot; &amp; If(io_nombreSprint_Str, &quot;Sprint&quot;).Trim() &amp; &quot; paso &quot; &amp; If(io_pasoActual_Str, &quot;1&quot;).Trim() &amp; &quot; &quot; &amp; DateTime.Now.ToString(&quot;yyyy-MM-dd HH:mm:ss&quot;)&#xA;    mensajeCommit = mensajeCommit.Replace(&quot;\&quot;, &quot;\\&quot;).Replace(&quot;&quot;&quot;&quot;, &quot;\&quot;&quot;&quot;)&#xA;    Dim ramaGitHubJson As String = ramaGitHub.Replace(&quot;\&quot;, &quot;\\&quot;).Replace(&quot;&quot;&quot;&quot;, &quot;\&quot;&quot;&quot;)&#xA;    Dim shaArchivoJson As String = shaArchivo.Replace(&quot;\&quot;, &quot;\\&quot;).Replace(&quot;&quot;&quot;&quot;, &quot;\&quot;&quot;&quot;)&#xA;&#xA;    Dim payload As New System.Text.StringBuilder()&#xA;    payload.AppendLine(&quot;{&quot;)&#xA;    payload.AppendLine(&quot;  &quot;&quot;message&quot;&quot;: &quot;&quot;&quot; &amp; mensajeCommit &amp; &quot;&quot;&quot;,&quot;)&#xA;    payload.AppendLine(&quot;  &quot;&quot;content&quot;&quot;: &quot;&quot;&quot; &amp; contenidoArchivoBase64 &amp; &quot;&quot;&quot;,&quot;)&#xA;    payload.AppendLine(&quot;  &quot;&quot;branch&quot;&quot;: &quot;&quot;&quot; &amp; ramaGitHubJson &amp; &quot;&quot;&quot;&quot;)&#xA;    If Not String.IsNullOrWhiteSpace(shaArchivoJson) Then&#xA;        payload.AppendLine(&quot;  ,&quot;&quot;sha&quot;&quot;: &quot;&quot;&quot; &amp; shaArchivoJson &amp; &quot;&quot;&quot;&quot;)&#xA;    End If&#xA;    payload.AppendLine(&quot;}&quot;)&#xA;&#xA;    Using clienteActualizacion As New System.Net.WebClient()&#xA;        clienteActualizacion.Encoding = System.Text.Encoding.UTF8&#xA;        clienteActualizacion.Headers(&quot;Authorization&quot;) = &quot;Bearer &quot; &amp; tokenGitHub&#xA;        clienteActualizacion.Headers(&quot;Accept&quot;) = &quot;application/vnd.github+json&quot;&#xA;        clienteActualizacion.Headers(&quot;X-GitHub-Api-Version&quot;) = &quot;2022-11-28&quot;&#xA;        clienteActualizacion.Headers(&quot;User-Agent&quot;) = &quot;UiPath-RPA-Panel&quot;&#xA;        clienteActualizacion.Headers(&quot;Content-Type&quot;) = &quot;application/json&quot;&#xA;        clienteActualizacion.UploadString(urlBase, &quot;PUT&quot;, payload.ToString())&#xA;    End Using&#xA;Catch ex As Exception&#xA;End Try" DisplayName="Publicar JSON del sprint en GitHub" sap:VirtualizedContainerService.HintSize="530,214" sap2010:WorkflowViewState.IdRef="InvokeCode_PublicarEstadoGitHub">
+      <ui:InvokeCode.Arguments>
+        <InOutArgument x:TypeArguments="x:String" x:Key="io_rutaJson_Str">[io_rutaJson_Str]</InOutArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="io_nombreSprint_Str">[io_nombreSprint_Str]</InOutArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="io_pasoActual_Str">[io_pasoActual_Str]</InOutArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="io_publicarGitHub_Str">[io_publicarGitHub_Str]</InOutArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubOwner_Str">[io_gitHubOwner_Str]</InOutArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubRepo_Str">[io_gitHubRepo_Str]</InOutArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubBranch_Str">[io_gitHubBranch_Str]</InOutArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubToken_Str">[io_gitHubToken_Str]</InOutArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubRutaBaseRepo_Str">[io_gitHubRutaBaseRepo_Str]</InOutArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+  </Sequence>
+</Activity>

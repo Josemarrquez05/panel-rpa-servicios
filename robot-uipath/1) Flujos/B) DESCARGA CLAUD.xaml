@@ -340,7 +340,7 @@
       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="Descarga el archivo CLAUD" DisplayName="Secuencia Invocada" sap:VirtualizedContainerService.HintSize="660,5084" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Descarga el archivo CLAUD" DisplayName="Secuencia Invocada" sap:VirtualizedContainerService.HintSize="860.0000000000001,2332" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="Configuracion" />
       <Variable x:TypeArguments="x:Int32" Default="0" Name="ContadorDiaActual_Int" />
@@ -356,6 +356,19 @@
       <Variable x:TypeArguments="x:String" Name="Archivo_Catalogo_Str" />
       <Variable x:TypeArguments="x:String" Name="Pestaña_Errores_uber_Str" />
       <Variable x:TypeArguments="x:String" Name="MensajeExeption_ERROR_Str" />
+      <Variable x:TypeArguments="x:String" Name="Descripcion_del_Sprint_Str" />
+      <Variable x:TypeArguments="x:String" Name="Nombre_del_Sprint_Str" />
+      <Variable x:TypeArguments="x:String" Name="Pasos_del_Sprint_Str" />
+      <Variable x:TypeArguments="x:String" Name="Numero_Paso_Panel_Str" />
+      <Variable x:TypeArguments="x:String" Name="Finalizar_Proceso_Panel_Str" />
+      <Variable x:TypeArguments="x:String" Name="Mensaje_Error_Panel_Str" />
+      <Variable x:TypeArguments="x:String" Name="Publicar_GitHub_Panel_Str" />
+      <Variable x:TypeArguments="x:String" Name="GitHub_Owner_Panel_Str" />
+      <Variable x:TypeArguments="x:String" Name="GitHub_Repositorio_Panel_Str" />
+      <Variable x:TypeArguments="x:String" Name="GitHub_Rama_Panel_Str" />
+      <Variable x:TypeArguments="x:String" Name="GitHub_Token_Panel_Str" />
+      <Variable x:TypeArguments="x:String" Name="GitHub_RutaBase_Panel_Str" />
+      <Variable x:TypeArguments="x:String" Name="RutaJson_Str" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -364,7 +377,7 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Intentar capturar" sap:VirtualizedContainerService.HintSize="660,5030" sap2010:WorkflowViewState.IdRef="TryCatch_189">
+    <TryCatch DisplayName="Intentar capturar" sap:VirtualizedContainerService.HintSize="553.6,2277.6" sap2010:WorkflowViewState.IdRef="TryCatch_189">
       <TryCatch.Variables>
         <Variable x:TypeArguments="x:String" Name="ArchivoDescargadoDEFAULT_Str" />
       </TryCatch.Variables>
@@ -375,7 +388,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="Secuencia" sap:VirtualizedContainerService.HintSize="658,4408" sap2010:WorkflowViewState.IdRef="Sequence_6490">
+        <Sequence DisplayName="Secuencia" sap:VirtualizedContainerService.HintSize="552,1624.8" sap2010:WorkflowViewState.IdRef="Sequence_6490">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="DiaFin_str" />
             <Variable x:TypeArguments="x:String" Name="Mes_str" />
@@ -389,7 +402,7 @@
               <x:Boolean x:Key="IsPinned">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence sap2010:Annotation.AnnotationText="Asigna los parámetros del flujo" DisplayName=".0.0) Asignación de parámetros y configuración" sap:VirtualizedContainerService.HintSize="624,88" sap2010:WorkflowViewState.IdRef="Sequence_6198">
+          <Sequence sap2010:Annotation.AnnotationText="Asigna los parámetros del flujo" DisplayName=".0.0) Asignación de parámetros y configuración" sap:VirtualizedContainerService.HintSize="518.4,132" sap2010:WorkflowViewState.IdRef="Sequence_6198">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -397,7 +410,7 @@
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:MultipleAssign sap2010:Annotation.AnnotationText="Se asignan los parámetros base del Sprint" DisplayName="Multiple Assign Base" sap:VirtualizedContainerService.HintSize="416,100.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_10">
+            <ui:MultipleAssign sap2010:Annotation.AnnotationText="Se asignan los parámetros base del Sprint" DisplayName="Multiple Assign - Parametros base del sprint" sap:VirtualizedContainerService.HintSize="478.4,305.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_10">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_208">
@@ -432,17 +445,121 @@
                       <InArgument x:TypeArguments="x:String">[out_Config("MensajeExeption_ERROR_Str").ToString]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_239">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[RutaJson_Str]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[out_Config("RutaJasonCLAUD").ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_CLAUD_PublicarGitHub">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[Publicar_GitHub_Panel_Str]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[If(out_Config.ContainsKey("GitHubPublicarPanelWeb"), out_Config("GitHubPublicarPanelWeb").ToString, "False")]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_CLAUD_GitHubOwner">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[GitHub_Owner_Panel_Str]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[If(out_Config.ContainsKey("GitHubOwnerPanelWeb"), out_Config("GitHubOwnerPanelWeb").ToString, "Josemarrquez05")]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_CLAUD_GitHubRepo">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[GitHub_Repositorio_Panel_Str]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[If(out_Config.ContainsKey("GitHubRepoPanelWeb"), out_Config("GitHubRepoPanelWeb").ToString, "panel-rpa-servicios")]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_CLAUD_GitHubBranch">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[GitHub_Rama_Panel_Str]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[If(out_Config.ContainsKey("GitHubBranchPanelWeb"), out_Config("GitHubBranchPanelWeb").ToString, "main")]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_CLAUD_GitHubToken">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[GitHub_Token_Panel_Str]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[If(out_Config.ContainsKey("GitHubTokenPanelWeb"), out_Config("GitHubTokenPanelWeb").ToString, String.Empty)]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_CLAUD_GitHubBasePath">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[GitHub_RutaBase_Panel_Str]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[If(out_Config.ContainsKey("GitHubRutaBasePanelWeb"), out_Config("GitHubRutaBasePanelWeb").ToString, "data")]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_CLAUD_SprintName">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[Nombre_del_Sprint_Str]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">Sprint CLAUD</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_CLAUD_StepsText">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[Pasos_del_Sprint_Str]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">Generar y Descargar Archivo||Log In||Generar archivo||Descargar Archivo</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_CLAUD_DescriptionsText">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[Descripcion_del_Sprint_Str]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">Ejecuta el flujo principal para generar y descargar el archivo.||Ingresa al portal LCE Gateway con las credenciales configuradas.||Captura fechas y solicita la generacion del reporte.||Exporta y guarda el archivo final descargado.</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_CLAUD_CurrentPanelStep">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[Numero_Paso_Panel_Str]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">1</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_CLAUD_FinalizarInicial">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[Finalizar_Proceso_Panel_Str]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">False</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_CLAUD_MensajeErrorInicial">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[Mensaje_Error_Panel_Str]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[String.Empty]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:MultipleAssign>
-            <ui:MultipleAssign sap2010:Annotation.AnnotationText="Se asignan los parámetros base del Sprint, secuencia actividad contadores de secuencia y fecha" DisplayName="Multiple Assign Contadores de secuencia" sap:VirtualizedContainerService.HintSize="416,116.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_12">
+            <ui:MultipleAssign sap2010:Annotation.AnnotationText="Se asignan los parámetros base del Sprint, secuencia actividad contadores de secuencia y fecha" DisplayName="Multiple Assign - Contadores de secuencia" sap:VirtualizedContainerService.HintSize="478.4,116.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_12">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_219">
@@ -479,7 +596,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:MultipleAssign>
-            <ui:MultipleAssign DisplayName="Multiple Assign Fechas" sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_9">
+            <ui:MultipleAssign DisplayName="Multiple Assign - Fechas" sap:VirtualizedContainerService.HintSize="478.4,56.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_9">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_202">
@@ -531,7 +648,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:MultipleAssign>
-            <ui:MultipleAssign DisplayName="Multiple Assign carpetas y archivos" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+            <ui:MultipleAssign DisplayName="Multiple Assign - Carpetas y archivos" sap:VirtualizedContainerService.HintSize="478.4,48" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_28">
@@ -576,7 +693,7 @@
               </sap:WorkflowViewStateService.ViewState>
             </ui:MultipleAssign>
           </Sequence>
-          <Sequence sap2010:Annotation.AnnotationText="Ingresa al portal&#xA;Se loggea dentro del portal, ingresa a la ruta indicada, pone los datos necesario para generar el archivo y lo descarga" DisplayName=".1.0) Generar y Descargar Archivo" sap:VirtualizedContainerService.HintSize="624,4094" sap2010:WorkflowViewState.IdRef="Sequence_8722">
+          <Sequence sap2010:Annotation.AnnotationText="Ingresa al portal&#xA;Se loggea dentro del portal, ingresa a la ruta indicada, pone los datos necesario para generar el archivo y lo descarga" DisplayName=".1.0) Generar y Descargar Archivo" sap:VirtualizedContainerService.HintSize="518.4,1326.4" sap2010:WorkflowViewState.IdRef="Sequence_8722">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -584,7 +701,7 @@
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:MultipleAssign sap2010:Annotation.AnnotationText="Se asignan los contadores de secuencia/actividad" DisplayName="Multiple Assign Secuencia" sap:VirtualizedContainerService.HintSize="590,88" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
+            <ui:MultipleAssign sap2010:Annotation.AnnotationText="Se asignan los contadores de secuencia/actividad" DisplayName="Multiple Assign - Secuencia" sap:VirtualizedContainerService.HintSize="484.8,100.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_222">
@@ -627,6 +744,14 @@
                       <InArgument x:TypeArguments="x:String">0</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_240">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[Descripcion_del_Sprint_Str]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">Ejecuta el flujo principal para generar y descargar el archivo.||Ingresa al portal LCE Gateway con las credenciales configuradas.||Captura fechas y solicita la generacion del reporte.||Exporta y guarda el archivo final descargado.</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
               <sap:WorkflowViewStateService.ViewState>
@@ -637,14 +762,37 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:MultipleAssign>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Sprint CLAUD: reutiliza la plantilla comun para actualizar el panel al entrar al Paso 1." DisplayName="Actualizar sprint CLAUD - Paso 1" sap:VirtualizedContainerService.HintSize="416,198.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_CLAUD_Step1" UnSafe="False" WorkflowFileName="90) CommonFlows\ActualizarPanelSprint.xaml"><ui:InvokeWorkflowFile.Arguments><InArgument x:TypeArguments="x:String" x:Key="rutaJson">["C:\RPA Servicios\data\cloud.json"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="nombreSprint">["Sprint CLAUD"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="pasoActual">["1"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="finalizarProceso">["False"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="pasosTexto">["Generar y Descargar Archivo||Log In||Generar archivo||Descargar Archivo"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="descripcionesTexto">["Ejecuta el flujo principal para generar y descargar el archivo.||Ingresa al portal LCE Gateway con las credenciales configuradas.||Captura fechas y solicita la generacion del reporte.||Exporta y guarda el archivo final descargado."]</InArgument></ui:InvokeWorkflowFile.Arguments></ui:InvokeWorkflowFile>
-            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Utilizar Navegador Chrome: LCE Gateway" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="590,3608" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" IsDisplayNameAuto="True" ScopeGuid="f3175bae-bfe7-4c93-a751-5a3e3873cd1c" Version="V2">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Sprint CLAUD: reutiliza la plantilla comun para actualizar el panel al entrar al Paso 1." DisplayName="Actualizar sprint" sap:VirtualizedContainerService.HintSize="484.8,249.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_CLAUD_Step1" UnSafe="False" WorkflowFileName="90) CommonFlows\ActualizarPanelSprint.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_rutaJson_Str">[RutaJson_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_nombreSprint_Str">[Nombre_del_Sprint_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_pasoActual_Str">[Numero_Paso_Panel_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_finalizarProceso_Str">[Finalizar_Proceso_Panel_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_pasosTexto_Str">[Pasos_del_Sprint_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_descripcionesTexto_Str">[Descripcion_del_Sprint_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_mensajeError_Str">[Mensaje_Error_Panel_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_publicarGitHub_Str">[Publicar_GitHub_Panel_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubOwner_Str">[GitHub_Owner_Panel_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubRepo_Str">[GitHub_Repositorio_Panel_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubBranch_Str">[GitHub_Rama_Panel_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubToken_Str">[GitHub_Token_Panel_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubRutaBaseRepo_Str">[GitHub_RutaBase_Panel_Str]</InOutArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InvokeWorkflowFile>
+            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Utilizar Navegador Chrome: LCE Gateway" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="484.8,539.2" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" IsDisplayNameAuto="True" ScopeGuid="f3175bae-bfe7-4c93-a751-5a3e3873cd1c" Version="V2">
               <uix:NApplicationCard.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Hacer" sap:VirtualizedContainerService.HintSize="588,3405" sap2010:WorkflowViewState.IdRef="Sequence_8723">
+                  <Sequence DisplayName="Hacer" sap:VirtualizedContainerService.HintSize="483.2,340.8" sap2010:WorkflowViewState.IdRef="Sequence_8723">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="sd2:DataTable" Name="Tabla_de_tiendas_Dt" />
                     </Sequence.Variables>
@@ -654,7 +802,7 @@
                         <x:Boolean x:Key="IsPinned">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence sap2010:Annotation.AnnotationText="Entra dentro del portal con las credenciales" DisplayName=".1.0) Log In" sap:VirtualizedContainerService.HintSize="554,88" sap2010:WorkflowViewState.IdRef="Sequence_8731">
+                    <Sequence sap2010:Annotation.AnnotationText="Entra dentro del portal con las credenciales" DisplayName=".1.0) Log In" sap:VirtualizedContainerService.HintSize="449.6,88" sap2010:WorkflowViewState.IdRef="Sequence_8731">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -662,7 +810,7 @@
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:MultipleAssign sap2010:Annotation.AnnotationText="Se asignan los contadores de secuencia/actividad" DisplayName="Multiple Assign Secuencia" sap:VirtualizedContainerService.HintSize="416,100.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_16">
+                      <ui:MultipleAssign sap2010:Annotation.AnnotationText="Se asignan los contadores de secuencia/actividad" DisplayName="Multiple Assign - Secuencia" sap:VirtualizedContainerService.HintSize="478.4,273.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_16">
                         <ui:MultipleAssign.AssignOperations>
                           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_227">
@@ -670,7 +818,7 @@
                                 <OutArgument x:TypeArguments="x:String">[io_Secuencia_Str]</OutArgument>
                               </ui:AssignOperation.To>
                               <ui:AssignOperation.Value>
-                                <InArgument x:TypeArguments="x:String">Descargar Archivo</InArgument>
+                                <InArgument x:TypeArguments="x:String">Log In</InArgument>
                               </ui:AssignOperation.Value>
                             </ui:AssignOperation>
                             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_228">
@@ -697,18 +845,49 @@
                                 <InArgument x:TypeArguments="x:String">0</InArgument>
                               </ui:AssignOperation.Value>
                             </ui:AssignOperation>
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_CLAUD_PanelStep2">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:String">[Numero_Paso_Panel_Str]</OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:String">2</InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
                           </scg:List>
                         </ui:MultipleAssign.AssignOperations>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">True</x:Boolean>
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:MultipleAssign>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Sprint CLAUD: reutiliza la plantilla comun para actualizar el panel al entrar al Paso 2." DisplayName="Actualizar sprint CLAUD - Paso 2" sap:VirtualizedContainerService.HintSize="416,198.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_CLAUD_Step2" UnSafe="False" WorkflowFileName="90) CommonFlows\ActualizarPanelSprint.xaml"><ui:InvokeWorkflowFile.Arguments><InArgument x:TypeArguments="x:String" x:Key="rutaJson">["C:\RPA Servicios\data\cloud.json"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="nombreSprint">["Sprint CLAUD"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="pasoActual">["2"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="finalizarProceso">["False"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="pasosTexto">["Generar y Descargar Archivo||Log In||Generar archivo||Descargar Archivo"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="descripcionesTexto">["Ejecuta el flujo principal para generar y descargar el archivo.||Ingresa al portal LCE Gateway con las credenciales configuradas.||Captura fechas y solicita la generacion del reporte.||Exporta y guarda el archivo final descargado."]</InArgument></ui:InvokeWorkflowFile.Arguments></ui:InvokeWorkflowFile>
-                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'SPAN'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,241.6" sap2010:WorkflowViewState.IdRef="NTypeInto_5" InteractionMode="SameAsCard" ScopeIdentifier="f3175bae-bfe7-4c93-a751-5a3e3873cd1c" Text="[out_Config(&quot;USUARIOCLAUD&quot;).ToString]" Version="V5">
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Sprint CLAUD: reutiliza la plantilla comun para actualizar el panel al entrar al Paso 2." DisplayName="Actualizar sprint" sap:VirtualizedContainerService.HintSize="478.4,249.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_CLAUD_Step2" UnSafe="False" WorkflowFileName="90) CommonFlows\ActualizarPanelSprint.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_rutaJson_Str">[RutaJson_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_nombreSprint_Str">[Nombre_del_Sprint_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_pasoActual_Str">[Numero_Paso_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_finalizarProceso_Str">[Finalizar_Proceso_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_pasosTexto_Str">[Pasos_del_Sprint_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_descripcionesTexto_Str">[Descripcion_del_Sprint_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_mensajeError_Str">[Mensaje_Error_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_publicarGitHub_Str">[Publicar_GitHub_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubOwner_Str">[GitHub_Owner_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubRepo_Str">[GitHub_Repositorio_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubBranch_Str">[GitHub_Rama_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubToken_Str">[GitHub_Token_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubRutaBaseRepo_Str">[GitHub_RutaBase_Panel_Str]</InOutArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:InvokeWorkflowFile>
+                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'SPAN'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="478.4,241.6" sap2010:WorkflowViewState.IdRef="NTypeInto_5" InteractionMode="SameAsCard" ScopeIdentifier="f3175bae-bfe7-4c93-a751-5a3e3873cd1c" Text="[out_Config(&quot;USUARIOCLAUD&quot;).ToString]" Version="V5">
                         <uix:NTypeInto.Target>
                           <uix:TargetAnchorable BrowserURL="lcegateway.com" CVScreenId="d32c5c5f-ab21-42bf-a560-47eb4de78f9d" DesignTimeRectangle="789, 621, 410, 42" ElementType="InputBox" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='txtUserName' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='txtUserName' tag='INPUT' type='text' class='form-control phone' placeholder='Username (e.g.: jsmith)' aaname='' matching:id='fuzzy' fuzzylevel:id='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="613fbba8-db5e-4f28-b856-9bb918536337" InformativeScreenshot="844247521859559bc6a3e7c0e74a534c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='LCE Gateway' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V6" WaitForReadyArgument="Interactive">
                             <uix:TargetAnchorable.Anchors>
@@ -724,7 +903,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </uix:NTypeInto>
-                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'SPAN'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,241.6" sap2010:WorkflowViewState.IdRef="NTypeInto_6" InteractionMode="SameAsCard" ScopeIdentifier="f3175bae-bfe7-4c93-a751-5a3e3873cd1c" Text="[out_Config(&quot;CONTRAÑACLAUD&quot;).ToString]" Version="V5">
+                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'SPAN'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="478.4,241.6" sap2010:WorkflowViewState.IdRef="NTypeInto_6" InteractionMode="SameAsCard" ScopeIdentifier="f3175bae-bfe7-4c93-a751-5a3e3873cd1c" Text="[out_Config(&quot;CONTRAÑACLAUD&quot;).ToString]" Version="V5">
                         <uix:NTypeInto.Target>
                           <uix:TargetAnchorable BrowserURL="lcegateway.com" CVScreenId="c48ef425-1cd8-4328-8308-af57d9f48ea5" CvElementArea="785, 681, 364, 44" CvType="InputBox" DesignTimeRectangle="789, 682, 360, 42" ElementType="InputBoxPassword" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='passwordCaps' tag='INPUT' /&gt;" Guid="9dd768b3-125f-4245-8a29-d3dd085a304b" InformativeScreenshot="0f622520de4d4c69e064b72fa25e7c19.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='LCE Gateway' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
                             <uix:TargetAnchorable.Anchors>
@@ -741,7 +920,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </uix:NTypeInto>
-                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Login'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,180.8" sap2010:WorkflowViewState.IdRef="NClick_20" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f3175bae-bfe7-4c93-a751-5a3e3873cd1c" Version="V5">
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Login'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="478.4,180.8" sap2010:WorkflowViewState.IdRef="NClick_20" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f3175bae-bfe7-4c93-a751-5a3e3873cd1c" Version="V5">
                         <uix:NClick.Target>
                           <uix:TargetAnchorable BrowserURL="lcegateway.com/Login/Login" CVScreenId="1c338ee4-f04b-4584-bb2f-8a730c427d75" DesignTimeRectangle="1059, 710, 140, 44" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='LoginBtn' tag='INPUT' /&gt;" Guid="5af3007d-5050-40d8-ac69-08adc126ed77" InformativeScreenshot="a4359dd577dccd4871ea22de52064d7e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='LCE Gateway' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
                         </uix:NClick.Target>
@@ -752,7 +931,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                       </uix:NClick>
                     </Sequence>
-                    <Sequence sap2010:Annotation.AnnotationText="Realiza los clics necesarios para generar el archivo ingresando la fecha de inicio y fin" DisplayName=".2.0) Generar archivo" sap:VirtualizedContainerService.HintSize="554,102" sap2010:WorkflowViewState.IdRef="Sequence_8741">
+                    <Sequence sap2010:Annotation.AnnotationText="Realiza los clics necesarios para generar el archivo ingresando la fecha de inicio y fin" DisplayName=".2.0) Generar archivo" sap:VirtualizedContainerService.HintSize="449.6,100.8" sap2010:WorkflowViewState.IdRef="Sequence_8741">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -760,7 +939,7 @@
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:MultipleAssign sap2010:Annotation.AnnotationText="Se asignan los contadores de secuencia/actividad" DisplayName="Multiple Assign Secuencia" sap:VirtualizedContainerService.HintSize="478.4,273.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_14">
+                      <ui:MultipleAssign sap2010:Annotation.AnnotationText="Se asignan los contadores de secuencia/actividad" DisplayName="Multiple Assign - Secuencia" sap:VirtualizedContainerService.HintSize="478.4,100.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_14">
                         <ui:MultipleAssign.AssignOperations>
                           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_231">
@@ -795,17 +974,41 @@
                                 <InArgument x:TypeArguments="x:String">0</InArgument>
                               </ui:AssignOperation.Value>
                             </ui:AssignOperation>
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_CLAUD_PanelStep3">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:String">[Numero_Paso_Panel_Str]</OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:String">3</InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
                           </scg:List>
                         </ui:MultipleAssign.AssignOperations>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:MultipleAssign>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Sprint CLAUD: reutiliza la plantilla comun para actualizar el panel al entrar al Paso 3." DisplayName="Actualizar sprint CLAUD - Paso 3" sap:VirtualizedContainerService.HintSize="416,198.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_CLAUD_Step3" UnSafe="False" WorkflowFileName="90) CommonFlows\ActualizarPanelSprint.xaml"><ui:InvokeWorkflowFile.Arguments><InArgument x:TypeArguments="x:String" x:Key="rutaJson">["C:\RPA Servicios\data\cloud.json"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="nombreSprint">["Sprint CLAUD"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="pasoActual">["3"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="finalizarProceso">["False"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="pasosTexto">["Generar y Descargar Archivo||Log In||Generar archivo||Descargar Archivo"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="descripcionesTexto">["Ejecuta el flujo principal para generar y descargar el archivo.||Ingresa al portal LCE Gateway con las credenciales configuradas.||Captura fechas y solicita la generacion del reporte.||Exporta y guarda el archivo final descargado."]</InArgument></ui:InvokeWorkflowFile.Arguments></ui:InvokeWorkflowFile>
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Sprint CLAUD: reutiliza la plantilla comun para actualizar el panel al entrar al Paso 3." DisplayName="Actualizar sprint" sap:VirtualizedContainerService.HintSize="478.4,56.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_CLAUD_Step3" UnSafe="False" WorkflowFileName="90) CommonFlows\ActualizarPanelSprint.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_rutaJson_Str">[RutaJson_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_nombreSprint_Str">[Nombre_del_Sprint_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_pasoActual_Str">[Numero_Paso_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_finalizarProceso_Str">[Finalizar_Proceso_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_pasosTexto_Str">[Pasos_del_Sprint_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_descripcionesTexto_Str">[Descripcion_del_Sprint_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_mensajeError_Str">[Mensaje_Error_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_publicarGitHub_Str">[Publicar_GitHub_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubOwner_Str">[GitHub_Owner_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubRepo_Str">[GitHub_Repositorio_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubBranch_Str">[GitHub_Rama_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubToken_Str">[GitHub_Token_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubRutaBaseRepo_Str">[GitHub_RutaBase_Panel_Str]</InOutArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
                       <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Reporting'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="478.4,56.8" sap2010:WorkflowViewState.IdRef="NClick_14" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f3175bae-bfe7-4c93-a751-5a3e3873cd1c" Version="V5">
                         <uix:NClick.Target>
                           <uix:TargetAnchorable BrowserURL="lcegateway.com/Dashboard/Index" CVScreenId="fd96068e-359b-48e3-b9de-7e68c3ea7492" CvElementArea="1586, 214, 42, 46" CvType="Icon" DesignTimeRectangle="1587, 217, 41, 38" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='                                 ' parentid='mainheader' tag='A' /&gt;" Guid="ee83feb6-b2e3-4534-b051-c74fe90a6346" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAC0AAAAqCAYAAAAnH9IiAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAIJSURBVFhH7Zd9T+JAEIfv+38PD6Hg2wGnhINSFMUYLyoeip4ix6m5Q46kvAUoPzvT1aKhZ/3Dbkn2STZpZpLOk812dvoJC4iSDgolHRRK+r08tNuIxVfweVnjtRxL4PbuXmS9+VDpXr+PVusBl5dXqF38xHg8FhmHq+u6Ixwh6Rg/V05/iKw3HyLdHwyQ14vYSKbtnVxlmb3ygci6PEvzkixN0O7GNEc4k82j0WiKjEvopI+OK4hqCUSiGkq7ZZjdrsi4hEq6vH+A9S8pdLs9FIwdHH4/EpmXhELasiwY2yUkU5sYDIccG41GME2Tn18jXZo6Qyabw2Ymy6J+kCpNu5r6uoWcbmAymYjo20iTpnNL55eOxXQ6FVF/SJH+1+kgsbrBH948TirVGSkN3/IFkXEIXPrP3xZfHNTavNCN7WepJXtFtRWRcQhUuvGryXPCee1CROajF4ozUs5sMUtg0nTTRaJx1G8aIuJNKKRPKqdc+M7HJEZIl6aPjc4wnWW/SJO2rCm3M+oS1C3egxRpuuWyOR1r60nux69p/r7lgeip8Jrdr2cJXPrplqM5gubjeVTPaojYIm5hTWQcApem/vvWHFE9O2cRKrbEfx+Spf2gpJX0fwi1tFHcQdruJLRo0DdN538vtNLUPdwXU+E4rus3nFsYabrKqRihpJW0klbS3ihpJb1QAI9NbKD3E7jh+gAAAABJRU5ErkJggg==" InformativeScreenshot="31ab2db1405bb1843499f54b55c11163.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='LCE Gateway' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
@@ -1055,15 +1258,15 @@
                         </sap:WorkflowViewStateService.ViewState>
                       </uix:NClick>
                     </Sequence>
-                    <Sequence sap2010:Annotation.AnnotationText="Realiza los clics necesarios para descargar el archivo y lo mueve a la carpeta descargas" DisplayName=".3.0) Descargar Archivo" sap:VirtualizedContainerService.HintSize="554,3155" sap2010:WorkflowViewState.IdRef="Sequence_8742">
+                    <Sequence sap2010:Annotation.AnnotationText="Realiza los clics necesarios para descargar el archivo y lo mueve a la carpeta descargas" DisplayName=".3.0) Descargar Archivo" sap:VirtualizedContainerService.HintSize="449.6,92" sap2010:WorkflowViewState.IdRef="Sequence_8742">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:MultipleAssign sap2010:Annotation.AnnotationText="Se asignan los contadores de secuencia/actividad" DisplayName="Multiple Assign Secuencia" sap:VirtualizedContainerService.HintSize="520,273" sap2010:WorkflowViewState.IdRef="MultipleAssign_15">
+                      <ui:MultipleAssign sap2010:Annotation.AnnotationText="Se asignan los contadores de secuencia/actividad" DisplayName="Multiple Assign - Secuencia" sap:VirtualizedContainerService.HintSize="520,273.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_15">
                         <ui:MultipleAssign.AssignOperations>
                           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_235">
@@ -1098,6 +1301,14 @@
                                 <InArgument x:TypeArguments="x:String">0</InArgument>
                               </ui:AssignOperation.Value>
                             </ui:AssignOperation>
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_CLAUD_PanelStep4">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:String">[Numero_Paso_Panel_Str]</OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:String">4</InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
                           </scg:List>
                         </ui:MultipleAssign.AssignOperations>
                         <sap:WorkflowViewStateService.ViewState>
@@ -1108,7 +1319,23 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:MultipleAssign>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Sprint CLAUD: reutiliza la plantilla comun para actualizar el panel al entrar al Paso 4." DisplayName="Actualizar sprint CLAUD - Paso 4" sap:VirtualizedContainerService.HintSize="416,198.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_CLAUD_Step4" UnSafe="False" WorkflowFileName="90) CommonFlows\ActualizarPanelSprint.xaml"><ui:InvokeWorkflowFile.Arguments><InArgument x:TypeArguments="x:String" x:Key="rutaJson">["C:\RPA Servicios\data\cloud.json"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="nombreSprint">["Sprint CLAUD"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="pasoActual">["4"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="finalizarProceso">["False"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="pasosTexto">["Generar y Descargar Archivo||Log In||Generar archivo||Descargar Archivo"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="descripcionesTexto">["Ejecuta el flujo principal para generar y descargar el archivo.||Ingresa al portal LCE Gateway con las credenciales configuradas.||Captura fechas y solicita la generacion del reporte.||Exporta y guarda el archivo final descargado."]</InArgument></ui:InvokeWorkflowFile.Arguments></ui:InvokeWorkflowFile>
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Sprint CLAUD: reutiliza la plantilla comun para actualizar el panel al entrar al Paso 4." DisplayName="Actualizar sprint" sap:VirtualizedContainerService.HintSize="416,198.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_CLAUD_Step4" UnSafe="False" WorkflowFileName="90) CommonFlows\ActualizarPanelSprint.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_rutaJson_Str">[RutaJson_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_nombreSprint_Str">[Nombre_del_Sprint_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_pasoActual_Str">[Numero_Paso_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_finalizarProceso_Str">[Finalizar_Proceso_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_pasosTexto_Str">[Pasos_del_Sprint_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_descripcionesTexto_Str">[Descripcion_del_Sprint_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_mensajeError_Str">[Mensaje_Error_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_publicarGitHub_Str">[Publicar_GitHub_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubOwner_Str">[GitHub_Owner_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubRepo_Str">[GitHub_Repositorio_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubBranch_Str">[GitHub_Rama_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubToken_Str">[GitHub_Token_Panel_Str]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubRutaBaseRepo_Str">[GitHub_RutaBase_Panel_Str]</InOutArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
                       <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Ver informe'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="520,194" sap2010:WorkflowViewState.IdRef="NClick_19" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f3175bae-bfe7-4c93-a751-5a3e3873cd1c" Version="V5">
                         <uix:NClick.Target>
                           <uix:TargetAnchorable BrowserURL="lcegateway.com/Reporting/EmbedReport" CVScreenId="4b99a706-3189-4f3c-8e12-e8de6806e78e" DesignTimeRectangle="1762, 439, 93, 17" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl src='https://app.powerbi.com/rdlEmbed?reportId=a850eb66-3d49-48ef-822d-3b1aaf62909d&amp;amp;config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVVTLU5PUlRILUNFTlRSQUwtSC1QUklNQVJZLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0IiwiZW1iZWRGZWF0dXJlcyI6eyJ1c2FnZU1ldHJpY3NWTmV4dCI6dHJ1ZX19&amp;amp;uid=21pmx' tag='IFRAME' /&gt;&lt;webctrl src='https://paginated-reports.powerbi.com?reportId=a850eb66-3d49-48ef-822d-3b1aaf62909d&amp;amp;config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVVTLU5PUlRILUNFTlRSQUwtSC1QUklNQVJZLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0IiwiZW1iZWRGZWF0dXJlcyI6eyJ1c2FnZU1ldHJpY3NWTmV4dCI6dHJ1ZX19&amp;amp;uid=21pmx' tag='IFRAME' /&gt;&lt;webctrl id='id__56' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://app.powerbi.com/rdlEmbed?reportId=a850eb66-3d49-48ef-822d-3b1aaf62909d&amp;amp;config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVVTLU5PUlRILUNFTlRSQUwtSC1QUklNQVJZLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0IiwiZW1iZWRGZWF0dXJlcyI6eyJ1c2FnZU1ldHJpY3NWTmV4dCI6dHJ1ZX19&amp;amp;uid=21pmx' tag='IFRAME' matching:src='fuzzy' fuzzylevel:src='0.0' /&gt;&lt;webctrl src='https://paginated-reports.powerbi.com?reportId=a850eb66-3d49-48ef-822d-3b1aaf62909d&amp;amp;config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVVTLU5PUlRILUNFTlRSQUwtSC1QUklNQVJZLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0IiwiZW1iZWRGZWF0dXJlcyI6eyJ1c2FnZU1ldHJpY3NWTmV4dCI6dHJ1ZX19&amp;amp;uid=21pmx' tag='IFRAME' matching:src='fuzzy' fuzzylevel:src='0.0' /&gt;&lt;webctrl id='id__56' tag='SPAN' type='' class='ms-Button-label label-154' aaname='Ver informe' matching:id='fuzzy' fuzzylevel:id='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Ver informe' /&gt;" Guid="2f8db43d-c695-4198-bd7c-75cf8196c49e" InformativeScreenshot="06a4a9b50c156296bfd0c81290516058.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='LCE Gateway' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V6" WaitForReadyArgument="Interactive">
@@ -1360,9 +1587,61 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NApplicationCard>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Sprint CLAUD: reutiliza la plantilla comun para dejar todos los pasos finalizados." DisplayName="Actualizar sprint CLAUD - Finalizado" sap:VirtualizedContainerService.HintSize="416,198.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_CLAUD_Final" UnSafe="False" WorkflowFileName="90) CommonFlows\ActualizarPanelSprint.xaml"><ui:InvokeWorkflowFile.Arguments><InArgument x:TypeArguments="x:String" x:Key="rutaJson">["C:\RPA Servicios\data\cloud.json"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="nombreSprint">["Sprint CLAUD"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="pasoActual">["4"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="finalizarProceso">["True"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="pasosTexto">["Generar y Descargar Archivo||Log In||Generar archivo||Descargar Archivo"]</InArgument><InArgument x:TypeArguments="x:String" x:Key="descripcionesTexto">["Ejecuta el flujo principal para generar y descargar el archivo.||Ingresa al portal LCE Gateway con las credenciales configuradas.||Captura fechas y solicita la generacion del reporte.||Exporta y guarda el archivo final descargado."]</InArgument></ui:InvokeWorkflowFile.Arguments></ui:InvokeWorkflowFile>
+            <ui:MultipleAssign sap2010:Annotation.AnnotationText="Se asignan los valores finales del sprint para el panel" DisplayName="Multiple Assign - Panel final" sap:VirtualizedContainerService.HintSize="484.8,222.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_CLAUD_FinalPanel">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="2">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_CLAUD_FinalizarProcesoTrue">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[Finalizar_Proceso_Panel_Str]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">True</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_CLAUD_MensajeErrorFinal">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[Mensaje_Error_Panel_Str]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[String.Empty]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:MultipleAssign>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Sprint CLAUD: reutiliza la plantilla comun para dejar todos los pasos finalizados." DisplayName="Actualizar sprint" sap:VirtualizedContainerService.HintSize="484.8,284.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_CLAUD_Final" UnSafe="False" WorkflowFileName="90) CommonFlows\ActualizarPanelSprint.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_rutaJson_Str">[RutaJson_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_nombreSprint_Str">[Nombre_del_Sprint_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_pasoActual_Str">[Numero_Paso_Panel_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_finalizarProceso_Str">[Finalizar_Proceso_Panel_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_pasosTexto_Str">[Pasos_del_Sprint_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_descripcionesTexto_Str">[Descripcion_del_Sprint_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_mensajeError_Str">[Mensaje_Error_Panel_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_publicarGitHub_Str">[Publicar_GitHub_Panel_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubOwner_Str">[GitHub_Owner_Panel_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubRepo_Str">[GitHub_Repositorio_Panel_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubBranch_Str">[GitHub_Rama_Panel_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubToken_Str">[GitHub_Token_Panel_Str]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubRutaBaseRepo_Str">[GitHub_RutaBase_Panel_Str]</InOutArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InvokeWorkflowFile>
           </Sequence>
-          <Assign DisplayName="io_MensajeCorreo_Str" sap:VirtualizedContainerService.HintSize="624,166" sap2010:WorkflowViewState.IdRef="Assign_5555">
+              <Assign DisplayName="io_MensajeSprint_Str" sap:VirtualizedContainerService.HintSize="518.4,106.4" sap2010:WorkflowViewState.IdRef="Assign_5555">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[io_MensajeSprint_Str]</OutArgument>
             </Assign.To>
@@ -1390,14 +1669,14 @@ Environment.NewLine +  "Se ha generado el archivo " + "CLAUD " +io_Fecha_Str]</I
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Secuencia" sap:VirtualizedContainerService.HintSize="658,406" sap2010:WorkflowViewState.IdRef="Sequence_7683">
+            <Sequence DisplayName="Secuencia" sap:VirtualizedContainerService.HintSize="552,398.4" sap2010:WorkflowViewState.IdRef="Sequence_7683">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Assign DisplayName="io_MensajeSprint_Str" sap:VirtualizedContainerService.HintSize="624,175" sap2010:WorkflowViewState.IdRef="Assign_5558">
+              <Assign DisplayName="io_MensajeSprint_Str" sap:VirtualizedContainerService.HintSize="518.4,56.8" sap2010:WorkflowViewState.IdRef="Assign_5558">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:String">[io_MensajeSprint_Str]</OutArgument>
                 </Assign.To>
@@ -1408,18 +1687,65 @@ io_MensajeSprint_Str + Environment.NewLine +
                 </Assign.Value>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </Assign>
-              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="624,123" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="sda">
+              <ui:MultipleAssign sap2010:Annotation.AnnotationText="Se asignan los valores del error para mostrarlos en el panel" DisplayName="Multiple Assign - Panel error" sap:VirtualizedContainerService.HintSize="518.4,222.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_CLAUD_ErrorPanel">
+                <ui:MultipleAssign.AssignOperations>
+                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="2">
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_CLAUD_FinalizarProcesoFalseError">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[Finalizar_Proceso_Panel_Str]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">False</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_CLAUD_MensajeErrorTexto">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[Mensaje_Error_Panel_Str]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">["Posible razon: " + io_Actividad_Str + ". Error del sistema: " + exception.Message]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                  </scg:List>
+                </ui:MultipleAssign.AssignOperations>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-              </WriteLine>
-              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="624,48" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+              </ui:MultipleAssign>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Sprint CLAUD: reutiliza la plantilla comun para reflejar el error del sprint en el panel." DisplayName="Actualizar sprint" sap:VirtualizedContainerService.HintSize="518.4,249.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="90) CommonFlows\ActualizarPanelSprint.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_rutaJson_Str">[RutaJson_Str]</InOutArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_nombreSprint_Str">[Nombre_del_Sprint_Str]</InOutArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_pasoActual_Str">[Numero_Paso_Panel_Str]</InOutArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_finalizarProceso_Str">[Finalizar_Proceso_Panel_Str]</InOutArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_pasosTexto_Str">[Pasos_del_Sprint_Str]</InOutArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_descripcionesTexto_Str">[Descripcion_del_Sprint_Str]</InOutArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_mensajeError_Str">[Mensaje_Error_Panel_Str]</InOutArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_publicarGitHub_Str">[Publicar_GitHub_Panel_Str]</InOutArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubOwner_Str">[GitHub_Owner_Panel_Str]</InOutArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubRepo_Str">[GitHub_Repositorio_Panel_Str]</InOutArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubBranch_Str">[GitHub_Rama_Panel_Str]</InOutArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubToken_Str">[GitHub_Token_Panel_Str]</InOutArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_gitHubRutaBaseRepo_Str">[GitHub_RutaBase_Panel_Str]</InOutArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:InvokeWorkflowFile>
+              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="518.4,48" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                 <ui:CommentOut.Body>
                   <Sequence DisplayName="Actividades ignoradas" sap2010:WorkflowViewState.IdRef="Sequence_8743">
                     <Assign DisplayName="io_MensajeSprint_Str" sap:VirtualizedContainerService.HintSize="518.4,106.4" sap2010:WorkflowViewState.IdRef="Assign_5559">
@@ -1444,7 +1770,7 @@ io_MensajeSprint_Str + Environment.NewLine]</InArgument>
         </Catch>
       </TryCatch.Catches>
       <TryCatch.Finally>
-        <Sequence DisplayName="Finalmente" sap:VirtualizedContainerService.HintSize="658,90" sap2010:WorkflowViewState.IdRef="Sequence_7783">
+        <Sequence DisplayName="Finalmente" sap:VirtualizedContainerService.HintSize="552,89.6" sap2010:WorkflowViewState.IdRef="Sequence_7783">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
