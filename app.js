@@ -203,19 +203,28 @@ async function loadAllData(showSuccess = false) {
     
     const robotList = AUTH.robots[user];
     if (!robotList) return;
-    
-    allRobotsData = [];
+
+    const previousRobotsData = Array.isArray(allRobotsData) ? [...allRobotsData] : [];
+    const nextRobotsData = new Array(robotList.length).fill(null);
     
     for (let i = 0; i < robotList.length; i++) {
         try {
             const data = await fetchRobotData(robotList[i]);
-            allRobotsData.push(data);
+            nextRobotsData[i] = data;
             renderPanel(i, data);
         } catch (error) {
             console.error(`Error cargando ${robotList[i]}:`, error.message);
-            renderPanelEmpty(i);
+            const fallbackData = previousRobotsData[i];
+            if (fallbackData && Array.isArray(fallbackData.steps)) {
+                nextRobotsData[i] = fallbackData;
+                renderPanel(i, fallbackData);
+            } else {
+                renderPanelEmpty(i);
+            }
         }
     }
+
+    allRobotsData = nextRobotsData.filter(data => data && Array.isArray(data.steps));
     
     updateGlobalSummary();
     
