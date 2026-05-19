@@ -1,39 +1,40 @@
 ﻿{
-    "processName":  "Sprint DIDI",
-    "startedAt":  "",
-    "durationSeconds":  0,
-    "durationLabel":  "00:00:00",
-    "completedAt":  "",
-    "lastUpdated":  "--",
-    "lastDatabaseUpdate":  "--",
-    "steps":  [
-                  {
-                      "step_number":  1,
-                      "step_name":  "Generar y enviar reporte",
-                      "status":  "Sin comenzar",
-                      "description":  "Ejecuta el bloque principal para generar y enviar el reporte por correo.",
-                      "updated_at":  "--"
-                  },
-                  {
-                      "step_number":  2,
-                      "step_name":  "Log in",
-                      "status":  "Sin comenzar",
-                      "description":  "Inicia sesión en DIDI con la cuenta configurada.",
-                      "updated_at":  "--"
-                  },
-                  {
-                      "step_number":  3,
-                      "step_name":  "Generar Reporte",
-                      "status":  "Sin comenzar",
-                      "description":  "Navega el portal financiero y solicita la generación del reporte.",
-                      "updated_at":  "--"
-                  },
-                  {
-                      "step_number":  4,
-                      "step_name":  "Descargar Correo",
-                      "status":  "Sin comenzar",
-                      "description":  "Revisa Outlook y descarga los adjuntos recibidos.",
-                      "updated_at":  "--"
-                  }
-              ]
+  "processName": "Sprint DIDI",
+  "startedAt": "2026-05-19 14:20:45",
+  "durationSeconds": 0,
+  "durationLabel": "00:00:00",
+  "completedAt": "",
+  "lastUpdated": "14:20:45",
+  "lastDatabaseUpdate": "14:20:45",
+  "errorMessage": "",
+  "steps": [
+    {
+      "step_number": 1,
+      "step_name": "Generar y enviar reporte",
+      "status": "En proceso",
+      "description": "Ejecuta el bloque principal para generar y enviar el reporte por correo.",
+      "updated_at": "14:20:45"
+    },
+    {
+      "step_number": 2,
+      "step_name": "Log in",
+      "status": "Sin comenzar",
+      "description": "Inicia sesion en DIDI con la cuenta configurada.",
+      "updated_at": "14:20:45"
+    },
+    {
+      "step_number": 3,
+      "step_name": "Generar Reporte",
+      "status": "Sin comenzar",
+      "description": "Navega el portal financiero y solicita la generacion del reporte.",
+      "updated_at": "14:20:45"
+    },
+    {
+      "step_number": 4,
+      "step_name": "Descargar Correo",
+      "status": "Sin comenzar",
+      "description": "Revisa Outlook y descarga los adjuntos recibidos.",
+      "updated_at": "14:20:45"
+    }
+  ]
 }
