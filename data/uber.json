@@ -1,40 +1,40 @@
 ﻿{
   "processName": "Sprint UBER",
-  "startedAt": "2026-05-19 15:04:54",
-  "durationSeconds": 26,
-  "durationLabel": "00:00:26",
+  "startedAt": "2026-05-19 15:11:40",
+  "durationSeconds": 0,
+  "durationLabel": "00:00:00",
   "completedAt": "",
-  "lastUpdated": "15:05:20",
-  "lastDatabaseUpdate": "15:05:20",
+  "lastUpdated": "15:11:40",
+  "lastDatabaseUpdate": "15:11:40",
   "errorMessage": "",
   "steps": [
     {
       "step_number": 1,
       "step_name": "Generar y Descargar Archivo",
-      "status": "Finalizado",
+      "status": "En proceso",
       "description": "Ejecuta el bloque principal para generar y descargar el reporte.",
-      "updated_at": "15:05:20"
+      "updated_at": "15:11:40"
     },
     {
       "step_number": 2,
       "step_name": "Generar archivo",
-      "status": "Finalizado",
+      "status": "Sin comenzar",
       "description": "Crea el reporte en Uber Eats Manager con el rango indicado.",
-      "updated_at": "15:05:20"
+      "updated_at": "15:11:40"
     },
     {
       "step_number": 3,
       "step_name": "Descargar Archivo",
-      "status": "En proceso",
+      "status": "Sin comenzar",
       "description": "Descarga el archivo solicitado cuando este disponible.",
-      "updated_at": "15:05:20"
+      "updated_at": "15:11:40"
     },
     {
       "step_number": 4,
       "step_name": "Formato",
       "status": "Sin comenzar",
       "description": "Convierte y acomoda el archivo final en el formato requerido.",
-      "updated_at": "15:05:20"
+      "updated_at": "15:11:40"
     }
   ]
 }
