@@ -1,40 +1,40 @@
 ﻿{
   "processName": "Sprint DIDI",
   "startedAt": "2026-05-19 15:20:12",
-  "durationSeconds": 0,
-  "durationLabel": "00:00:00",
+  "durationSeconds": 8,
+  "durationLabel": "00:00:08",
   "completedAt": "",
-  "lastUpdated": "15:20:12",
-  "lastDatabaseUpdate": "15:20:12",
+  "lastUpdated": "15:20:20",
+  "lastDatabaseUpdate": "15:20:20",
   "errorMessage": "",
   "steps": [
     {
       "step_number": 1,
       "step_name": "Generar y enviar reporte",
-      "status": "En proceso",
+      "status": "Finalizado",
       "description": "Ejecuta el bloque principal para generar y enviar el reporte por correo.",
-      "updated_at": "15:20:12"
+      "updated_at": "15:20:20"
     },
     {
       "step_number": 2,
       "step_name": "Log in",
-      "status": "Sin comenzar",
+      "status": "En proceso",
       "description": "Inicia sesion en DIDI con la cuenta configurada.",
-      "updated_at": "15:20:12"
+      "updated_at": "15:20:20"
     },
     {
       "step_number": 3,
       "step_name": "Generar Reporte",
       "status": "Sin comenzar",
       "description": "Navega el portal financiero y solicita la generacion del reporte.",
-      "updated_at": "15:20:12"
+      "updated_at": "15:20:20"
     },
     {
       "step_number": 4,
       "step_name": "Descargar Correo",
       "status": "Sin comenzar",
       "description": "Revisa Outlook y descarga los adjuntos recibidos.",
-      "updated_at": "15:20:12"
+      "updated_at": "15:20:20"
     }
   ]
 }
