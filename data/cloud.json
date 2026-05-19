@@ -1,11 +1,11 @@
 ﻿{
   "processName": "Sprint CLAUD",
   "startedAt": "2026-05-19 11:07:24",
-  "durationSeconds": 9,
-  "durationLabel": "00:00:09",
+  "durationSeconds": 13,
+  "durationLabel": "00:00:13",
   "completedAt": "",
-  "lastUpdated": "11:07:33",
-  "lastDatabaseUpdate": "11:07:33",
+  "lastUpdated": "11:07:37",
+  "lastDatabaseUpdate": "11:07:37",
   "errorMessage": "",
   "steps": [
     {
@@ -13,28 +13,28 @@
       "step_name": "Generar y Descargar Archivo",
       "status": "Finalizado",
       "description": "Ejecuta el flujo principal para generar y descargar el archivo.",
-      "updated_at": "11:07:33"
+      "updated_at": "11:07:37"
     },
     {
       "step_number": 2,
       "step_name": "Log In",
-      "status": "En proceso",
+      "status": "Finalizado",
       "description": "Ingresa al portal LCE Gateway con las credenciales configuradas.",
-      "updated_at": "11:07:33"
+      "updated_at": "11:07:37"
     },
     {
       "step_number": 3,
       "step_name": "Generar archivo",
-      "status": "Sin comenzar",
+      "status": "En proceso",
       "description": "Captura fechas y solicita la generacion del reporte.",
-      "updated_at": "11:07:33"
+      "updated_at": "11:07:37"
     },
     {
       "step_number": 4,
       "step_name": "Descargar Archivo",
       "status": "Sin comenzar",
       "description": "Exporta y guarda el archivo final descargado.",
-      "updated_at": "11:07:33"
+      "updated_at": "11:07:37"
     }
   ]
 }
