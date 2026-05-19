@@ -1,112 +1,40 @@
 ﻿{
   "processName": "Sprint CLAUD",
-  "startedAt": "2026-05-19 14:10:03",
-  "durationSeconds": 36,
-  "durationLabel": "00:00:36",
+  "startedAt": "2026-05-19 14:10:41",
+  "durationSeconds": 0,
+  "durationLabel": "00:00:00",
   "completedAt": "",
-  "lastUpdated": "14:10:39",
-  "lastDatabaseUpdate": "14:10:39",
-  "errorMessage": "Posible razon: No se pudo acceder al portal con las contraseñas actuales. Error del sistema: No se pudo encontrar el elemento de interfaz de usuario (UI) para esta acción.
-
-Posibles soluciones:
-• Asegúrese de que la aplicación esté abierta y de que el elemento de UI esté visible en la pantalla durante el
- tiempo de ejecución
- • Edite el Destino de la actividad de UI y use la Validación para depurar el problema. 
- • Si es necesario, vuelva a indicar el elemento, ya que sus propiedades podrían haber cambiado
- • Use la actividad \"Verificar estado\" para verificar el estado de la aplicación antes de ejecutar la acción
- • Aumente el valor de \"Retrasar antes\" para dar tiempo a que la aplicación se procese por completo
- y responda 
-
-[Objetivo]: Error del selector estricto:
-<webctrl id='txtUserName' tag='INPUT' />
-
-Las coincidencias de selector más cercanas encontradas son:
-[69%] <webctrl id='searchText' tag='INPUT'/>
-[69%] <webctrl id='searchType' tag='INPUT'/>
-[69%] <webctrl id='selectedTimeZone' tag='INPUT'/>
-[67%] <webctrl id='searchString' tag='INPUT'/>
-[66%] <webctrl id='timeZoneOffset' tag='INPUT'/>
-[61%] <webctrl id='firstLoginHidden' tag='INPUT'/>
-[60%] <webctrl id='roleHidden' tag='INPUT'/>)
-
-[Anclaje 1 '']: Error del selector estricto:
-<webctrl parentid='LoginForm' tag='SPAN' />
-
-Las coincidencias de selector más cercanas encontradas son:
-[80%] <webctrl parentid='logOnWindow' tag='SPAN'/>
-[80%] <webctrl parentid='logOnWindow' tag='SPAN'/>
-[80%] <webctrl parentid='logOnWindow' tag='SPAN'/>
-[66%] <webctrl parentid='mainheader' tag='SPAN'/>
-[66%] <webctrl parentid='mainheader' tag='SPAN'/>
-[66%] <webctrl parentid='mainheader' tag='SPAN'/>
-[66%] <webctrl parentid='mainheader' tag='SPAN'/>
-[66%] <webctrl parentid='mainheader' tag='SPAN'/>
-[66%] <webctrl parentid='mainheader' tag='SPAN'/>
-[66%] <webctrl parentid='mainheader' tag='SPAN'/>)",
+  "lastUpdated": "14:10:41",
+  "lastDatabaseUpdate": "14:10:41",
+  "errorMessage": "",
   "steps": [
     {
       "step_number": 1,
       "step_name": "Generar y Descargar Archivo",
-      "status": "Finalizado",
+      "status": "En proceso",
       "description": "Ejecuta el flujo principal para generar y descargar el archivo.",
-      "updated_at": "14:10:39"
+      "updated_at": "14:10:41"
     },
     {
       "step_number": 2,
       "step_name": "Log In",
-      "status": "Con error",
-      "description": "Posible razon: No se pudo acceder al portal con las contraseñas actuales. Error del sistema: No se pudo encontrar el elemento de interfaz de usuario (UI) para esta acción.
-
-Posibles soluciones:
-• Asegúrese de que la aplicación esté abierta y de que el elemento de UI esté visible en la pantalla durante el
- tiempo de ejecución
- • Edite el Destino de la actividad de UI y use la Validación para depurar el problema. 
- • Si es necesario, vuelva a indicar el elemento, ya que sus propiedades podrían haber cambiado
- • Use la actividad \"Verificar estado\" para verificar el estado de la aplicación antes de ejecutar la acción
- • Aumente el valor de \"Retrasar antes\" para dar tiempo a que la aplicación se procese por completo
- y responda 
-
-[Objetivo]: Error del selector estricto:
-<webctrl id='txtUserName' tag='INPUT' />
-
-Las coincidencias de selector más cercanas encontradas son:
-[69%] <webctrl id='searchText' tag='INPUT'/>
-[69%] <webctrl id='searchType' tag='INPUT'/>
-[69%] <webctrl id='selectedTimeZone' tag='INPUT'/>
-[67%] <webctrl id='searchString' tag='INPUT'/>
-[66%] <webctrl id='timeZoneOffset' tag='INPUT'/>
-[61%] <webctrl id='firstLoginHidden' tag='INPUT'/>
-[60%] <webctrl id='roleHidden' tag='INPUT'/>)
-
-[Anclaje 1 '']: Error del selector estricto:
-<webctrl parentid='LoginForm' tag='SPAN' />
-
-Las coincidencias de selector más cercanas encontradas son:
-[80%] <webctrl parentid='logOnWindow' tag='SPAN'/>
-[80%] <webctrl parentid='logOnWindow' tag='SPAN'/>
-[80%] <webctrl parentid='logOnWindow' tag='SPAN'/>
-[66%] <webctrl parentid='mainheader' tag='SPAN'/>
-[66%] <webctrl parentid='mainheader' tag='SPAN'/>
-[66%] <webctrl parentid='mainheader' tag='SPAN'/>
-[66%] <webctrl parentid='mainheader' tag='SPAN'/>
-[66%] <webctrl parentid='mainheader' tag='SPAN'/>
-[66%] <webctrl parentid='mainheader' tag='SPAN'/>
-[66%] <webctrl parentid='mainheader' tag='SPAN'/>)",
-      "updated_at": "14:10:39"
+      "status": "Sin comenzar",
+      "description": "Ingresa al portal LCE Gateway con las credenciales configuradas.",
+      "updated_at": "14:10:41"
     },
     {
       "step_number": 3,
       "step_name": "Generar archivo",
       "status": "Sin comenzar",
       "description": "Captura fechas y solicita la generacion del reporte.",
-      "updated_at": "14:10:39"
+      "updated_at": "14:10:41"
     },
     {
       "step_number": 4,
       "step_name": "Descargar Archivo",
       "status": "Sin comenzar",
       "description": "Exporta y guarda el archivo final descargado.",
-      "updated_at": "14:10:39"
+      "updated_at": "14:10:41"
     }
   ]
 }
