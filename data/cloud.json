@@ -1,40 +1,58 @@
 ﻿{
   "processName": "Sprint CLAUD",
   "startedAt": "2026-05-19 14:04:47",
-  "durationSeconds": 39,
-  "durationLabel": "00:00:39",
+  "durationSeconds": 237,
+  "durationLabel": "00:03:57",
   "completedAt": "",
-  "lastUpdated": "14:05:26",
-  "lastDatabaseUpdate": "14:05:26",
-  "errorMessage": "",
+  "lastUpdated": "14:08:44",
+  "lastDatabaseUpdate": "14:08:44",
+  "errorMessage": "Posible razon: No se pudo descargar el reprote generado. Error del sistema: No se pudo encontrar el elemento de interfaz de usuario (UI) para esta acción.
+
+Posibles soluciones:
+• Asegúrese de que la aplicación esté abierta y de que el elemento de UI esté visible en la pantalla durante el
+ tiempo de ejecución
+ • Edite el Destino de la actividad de UI y use la Validación para depurar el problema. 
+ • Si es necesario, vuelva a indicar el elemento, ya que sus propiedades podrían haber cambiado
+ • Use la actividad \"Verificar estado\" para verificar el estado de la aplicación antes de ejecutar la acción
+ • Aumente el valor de \"Retrasar antes\" para dar tiempo a que la aplicación se procese por completo
+ y responda",
   "steps": [
     {
       "step_number": 1,
       "step_name": "Generar y Descargar Archivo",
       "status": "Finalizado",
       "description": "Ejecuta el flujo principal para generar y descargar el archivo.",
-      "updated_at": "14:05:26"
+      "updated_at": "14:08:44"
     },
     {
       "step_number": 2,
       "step_name": "Log In",
       "status": "Finalizado",
       "description": "Ingresa al portal LCE Gateway con las credenciales configuradas.",
-      "updated_at": "14:05:26"
+      "updated_at": "14:08:44"
     },
     {
       "step_number": 3,
       "step_name": "Generar archivo",
       "status": "Finalizado",
       "description": "Captura fechas y solicita la generacion del reporte.",
-      "updated_at": "14:05:26"
+      "updated_at": "14:08:44"
     },
     {
       "step_number": 4,
       "step_name": "Descargar Archivo",
-      "status": "En proceso",
-      "description": "Exporta y guarda el archivo final descargado.",
-      "updated_at": "14:05:26"
+      "status": "Con error",
+      "description": "Posible razon: No se pudo descargar el reprote generado. Error del sistema: No se pudo encontrar el elemento de interfaz de usuario (UI) para esta acción.
+
+Posibles soluciones:
+• Asegúrese de que la aplicación esté abierta y de que el elemento de UI esté visible en la pantalla durante el
+ tiempo de ejecución
+ • Edite el Destino de la actividad de UI y use la Validación para depurar el problema. 
+ • Si es necesario, vuelva a indicar el elemento, ya que sus propiedades podrían haber cambiado
+ • Use la actividad \"Verificar estado\" para verificar el estado de la aplicación antes de ejecutar la acción
+ • Aumente el valor de \"Retrasar antes\" para dar tiempo a que la aplicación se procese por completo
+ y responda",
+      "updated_at": "14:08:44"
     }
   ]
 }
