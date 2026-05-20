@@ -851,6 +851,62 @@ tbody tr:nth-child(even) {
     overflow-wrap: anywhere;
 }
 
+.panel-table td:nth-child(4) {
+    vertical-align: top;
+}
+
+.description-text {
+    display: block;
+    line-height: 1.5;
+}
+
+.error-description {
+    display: grid;
+    gap: 8px;
+    max-width: 100%;
+}
+
+.error-summary {
+    color: var(--danger);
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.error-details {
+    width: 100%;
+}
+
+.error-details summary {
+    cursor: pointer;
+    color: var(--brand);
+    font-size: 0.82rem;
+    font-weight: 700;
+    list-style: none;
+}
+
+.error-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.error-details[open] summary {
+    margin-bottom: 8px;
+}
+
+.error-detail-content {
+    margin: 0;
+    padding: 10px 12px;
+    max-height: 190px;
+    overflow: auto;
+    border-radius: 8px;
+    background: #fff7f5;
+    border: 1px solid rgba(207, 61, 46, 0.18);
+    color: var(--ink);
+    font: inherit;
+    line-height: 1.45;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
 .panel-chart {
     display: flex;
     flex-direction: column;

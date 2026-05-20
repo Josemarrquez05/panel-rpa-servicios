@@ -457,6 +457,33 @@ function calculateSummary(steps) {
     return summary;
 }
 
+function normalizeDescriptionText(value) {
+    return String(value || '')
+        .replace(/\r\n?/g, '\n')
+        .replace(/\u00a0/g, ' ')
+        .trim();
+}
+
+function getErrorSummaryText(text) {
+    const normalized = normalizeDescriptionText(text);
+    const primaryBlock = normalized
+        .split(/\n{2,}/)
+        .map(block => block.replace(/\s+/g, ' ').trim())
+        .find(Boolean) || normalized.replace(/\s+/g, ' ').trim();
+
+    let summary = primaryBlock;
+    const objectiveIndex = summary.indexOf('[Objetivo]');
+    if (objectiveIndex > 0) {
+        summary = summary.slice(0, objectiveIndex).trim();
+    }
+
+    if (summary.length > 180) {
+        summary = `${summary.slice(0, 177).trimEnd()}...`;
+    }
+
+    return summary || 'Se detecto un error en este paso.';
+}
+
 function getStepKey(step, index) {
     const baseKey = step && step.step_number !== undefined ? String(step.step_number) : String(index + 1);
     return `step-${baseKey}`;
@@ -489,9 +516,53 @@ function updatePanelStepRow(row, step, signature) {
     cells[0].textContent = step.step_number;
     cells[1].textContent = step.step_name;
     cells[2].innerHTML = `<span class="status-pill ${getStatusClass(step.status)}">${escapeHtml(step.status)}</span>`;
-    cells[3].textContent = step.description;
+    renderDescriptionCell(cells[3], step);
     cells[4].textContent = step.updated_at || '--';
     row.dataset.signature = signature;
+}
+
+function renderDescriptionCell(cell, step) {
+    const description = step && step.description ? String(step.description) : '';
+    const normalizedDescription = normalizeDescriptionText(description);
+
+    cell.innerHTML = '';
+
+    if (step && step.status === 'Con error' && normalizedDescription) {
+        const summaryText = getErrorSummaryText(normalizedDescription);
+        const hasExtraDetail = normalizedDescription.length > summaryText.length || normalizedDescription.includes('\n');
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'error-description';
+
+        const summary = document.createElement('div');
+        summary.className = 'error-summary';
+        summary.textContent = summaryText;
+        wrapper.appendChild(summary);
+
+        if (hasExtraDetail) {
+            const details = document.createElement('details');
+            details.className = 'error-details';
+
+            const detailsSummary = document.createElement('summary');
+            detailsSummary.textContent = 'Ver detalle';
+            details.appendChild(detailsSummary);
+
+            const detailContent = document.createElement('pre');
+            detailContent.className = 'error-detail-content';
+            detailContent.textContent = normalizedDescription;
+            details.appendChild(detailContent);
+
+            wrapper.appendChild(details);
+        }
+
+        cell.appendChild(wrapper);
+        return;
+    }
+
+    const text = document.createElement('span');
+    text.className = 'description-text';
+    text.textContent = normalizedDescription || '--';
+    cell.appendChild(text);
 }
 
 function getFlowDisplayName(robotId) {
