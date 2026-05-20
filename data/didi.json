@@ -1,40 +1,40 @@
 {
     "processName":  "Sprint DIDI",
-    "startedAt":  "",
-    "durationSeconds":  0,
-    "durationLabel":  "--:--:--",
-    "completedAt":  "",
-    "lastUpdated":  "--",
-    "lastDatabaseUpdate":  "--",
+    "startedAt":  "2026-05-19 15:20:12",
+    "durationSeconds":  256,
+    "durationLabel":  "00:04:16",
+    "completedAt":  "2026-05-19 15:24:28",
+    "lastUpdated":  "15:24:28",
+    "lastDatabaseUpdate":  "15:24:28",
     "errorMessage":  "",
     "steps":  [
                   {
                       "step_number":  1,
                       "step_name":  "Generar y enviar reporte",
-                      "status":  "Sin comenzar",
+                      "status":  "Finalizado",
                       "description":  "Ejecuta el bloque principal para generar y enviar el reporte por correo.",
-                      "updated_at":  "--"
+                      "updated_at":  "15:24:28"
                   },
                   {
                       "step_number":  2,
                       "step_name":  "Log in",
-                      "status":  "Sin comenzar",
+                      "status":  "Finalizado",
                       "description":  "Inicia sesion en DIDI con la cuenta configurada.",
-                      "updated_at":  "--"
+                      "updated_at":  "15:24:28"
                   },
                   {
                       "step_number":  3,
                       "step_name":  "Generar Reporte",
-                      "status":  "Sin comenzar",
+                      "status":  "Finalizado",
                       "description":  "Navega el portal financiero y solicita la generacion del reporte.",
-                      "updated_at":  "--"
+                      "updated_at":  "15:24:28"
                   },
                   {
                       "step_number":  4,
                       "step_name":  "Descargar Correo",
-                      "status":  "Sin comenzar",
+                      "status":  "Finalizado",
                       "description":  "Revisa Outlook y descarga los adjuntos recibidos.",
-                      "updated_at":  "--"
+                      "updated_at":  "15:24:28"
                   }
               ]
 }
