@@ -529,33 +529,10 @@ function renderDescriptionCell(cell, step) {
 
     if (step && step.status === 'Con error' && normalizedDescription) {
         const summaryText = getErrorSummaryText(normalizedDescription);
-        const hasExtraDetail = normalizedDescription.length > summaryText.length || normalizedDescription.includes('\n');
-
-        const wrapper = document.createElement('div');
-        wrapper.className = 'error-description';
-
         const summary = document.createElement('div');
         summary.className = 'error-summary';
         summary.textContent = summaryText;
-        wrapper.appendChild(summary);
-
-        if (hasExtraDetail) {
-            const details = document.createElement('details');
-            details.className = 'error-details';
-
-            const detailsSummary = document.createElement('summary');
-            detailsSummary.textContent = 'Ver detalle';
-            details.appendChild(detailsSummary);
-
-            const detailContent = document.createElement('pre');
-            detailContent.className = 'error-detail-content';
-            detailContent.textContent = normalizedDescription;
-            details.appendChild(detailContent);
-
-            wrapper.appendChild(details);
-        }
-
-        cell.appendChild(wrapper);
+        cell.appendChild(summary);
         return;
     }
 
