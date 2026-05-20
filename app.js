@@ -150,9 +150,7 @@ function buildPanels(robotList) {
                                 <th>Actualizado</th>
                             </tr>
                         </thead>
-                        <tbody id="${panelId}-body">
-                            <tr><td colspan="5" class="empty-state">Cargando...</td></tr>
-                        </tbody>
+                        <tbody id="${panelId}-body"></tbody>
                     </table>
                 </div>
                 <div class="panel-chart">
@@ -316,6 +314,8 @@ function renderPanelTable(panelId, steps) {
         tbody.innerHTML = '<tr><td colspan="5" class="empty-state">No hay pasos</td></tr>';
         return;
     }
+
+    Array.from(tbody.querySelectorAll('tr:not([data-step-key])')).forEach(row => row.remove());
 
     const existingRows = new Map(
         Array.from(tbody.querySelectorAll('tr[data-step-key]')).map(row => [row.dataset.stepKey, row])
