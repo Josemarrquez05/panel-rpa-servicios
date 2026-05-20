@@ -133,7 +133,6 @@ function buildPanels(robotList) {
                     </span>
                 </span>
                 <span class="panel-header-side">
-                    <span class="db-chip">JSON + JS</span>
                     <span class="panel-toggle-icon" aria-hidden="true"></span>
                 </span>
             </button>
