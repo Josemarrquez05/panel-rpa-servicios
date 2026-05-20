@@ -23,6 +23,7 @@ const FLOW_NAMES = {
 let allRobotsData = [];
 let currentRobotList = [];
 let updateTimer = null;
+const panelRenderCache = new Map();
 
 // ============================================
 // GESTIÓN DE SESIÓN
@@ -96,6 +97,7 @@ function showLoginError(message) {
 document.getElementById('logout-button').addEventListener('click', function() {
     localStorage.removeItem('rpa_user');
     allRobotsData = [];
+    panelRenderCache.clear();
     if (updateTimer) {
         clearInterval(updateTimer);
         updateTimer = null;
@@ -288,6 +290,8 @@ function renderPanelEmpty(index) {
     const robotId = currentRobotList[index];
     document.getElementById(`${panelId}-name`).textContent = getFlowDisplayName(robotId);
     updatePanelMeta(panelId, null);
+    panelRenderCache.delete(`${panelId}-table`);
+    panelRenderCache.delete(`${panelId}-chart`);
     document.getElementById(`${panelId}-body`).innerHTML = `
         <tr><td colspan="5" class="empty-state">Esperando datos del robot...</td></tr>
     `;
@@ -308,22 +312,46 @@ function renderPanelTable(panelId, steps) {
     const tbody = document.getElementById(`${panelId}-body`);
     
     if (steps.length === 0) {
+        panelRenderCache.delete(`${panelId}-table`);
         tbody.innerHTML = '<tr><td colspan="5" class="empty-state">No hay pasos</td></tr>';
         return;
     }
-    
-    tbody.innerHTML = steps.map(step => `
-        <tr class="fade-in-row">
-            <td>${escapeHtml(step.step_number)}</td>
-            <td>${escapeHtml(step.step_name)}</td>
-            <td><span class="status-pill ${getStatusClass(step.status)}">${escapeHtml(step.status)}</span></td>
-            <td>${escapeHtml(step.description)}</td>
-            <td>${escapeHtml(step.updated_at || '--')}</td>
-        </tr>
-    `).join('');
+
+    const existingRows = new Map(
+        Array.from(tbody.querySelectorAll('tr[data-step-key]')).map(row => [row.dataset.stepKey, row])
+    );
+
+    steps.forEach((step, index) => {
+        const stepKey = getStepKey(step, index);
+        const stepSignature = getStepSignature(step);
+        let row = existingRows.get(stepKey);
+
+        if (!row) {
+            row = createPanelStepRow(stepKey);
+        }
+
+        if (row.dataset.signature !== stepSignature) {
+            updatePanelStepRow(row, step, stepSignature);
+        }
+
+        const referenceRow = tbody.children[index] || null;
+        if (referenceRow !== row) {
+            tbody.insertBefore(row, referenceRow);
+        }
+
+        existingRows.delete(stepKey);
+    });
+
+    existingRows.forEach(row => row.remove());
+    panelRenderCache.set(`${panelId}-table`, steps.map(getStepSignature).join('||'));
 }
 
 function updatePanelChart(panelId, summary) {
+    const summarySignature = CONFIG.statusOrder.map(status => `${status}:${summary[status] || 0}`).join('|');
+    if (panelRenderCache.get(`${panelId}-chart`) === summarySignature) {
+        return;
+    }
+
     const total = Object.values(summary).reduce((a, b) => a + b, 0);
     const safeTotal = Math.max(total, 1);
     
@@ -348,6 +376,8 @@ function updatePanelChart(panelId, summary) {
         const el = document.getElementById(`${panelId}-${key}`);
         if (el) el.textContent = summary[status] || 0;
     });
+
+    panelRenderCache.set(`${panelId}-chart`, summarySignature);
 }
 
 function updateGlobalSummary() {
@@ -425,6 +455,43 @@ function calculateSummary(steps) {
         if (summary[step.status] !== undefined) summary[step.status]++;
     });
     return summary;
+}
+
+function getStepKey(step, index) {
+    const baseKey = step && step.step_number !== undefined ? String(step.step_number) : String(index + 1);
+    return `step-${baseKey}`;
+}
+
+function getStepSignature(step) {
+    return [
+        step.step_number,
+        step.step_name,
+        step.status,
+        step.description,
+        step.updated_at || '--'
+    ].join('|');
+}
+
+function createPanelStepRow(stepKey) {
+    const row = document.createElement('tr');
+    row.className = 'panel-step-row';
+    row.dataset.stepKey = stepKey;
+
+    for (let i = 0; i < 5; i++) {
+        row.appendChild(document.createElement('td'));
+    }
+
+    return row;
+}
+
+function updatePanelStepRow(row, step, signature) {
+    const cells = row.children;
+    cells[0].textContent = step.step_number;
+    cells[1].textContent = step.step_name;
+    cells[2].innerHTML = `<span class="status-pill ${getStatusClass(step.status)}">${escapeHtml(step.status)}</span>`;
+    cells[3].textContent = step.description;
+    cells[4].textContent = step.updated_at || '--';
+    row.dataset.signature = signature;
 }
 
 function getFlowDisplayName(robotId) {

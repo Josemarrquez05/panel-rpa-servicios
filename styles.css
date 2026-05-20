@@ -441,7 +441,7 @@ tbody tr:nth-child(even) {
 }
 
 .fade-in-row {
-    animation: fadeRow 0.28s ease;
+    animation: none;
 }
 
 .status-pill {
@@ -796,6 +796,7 @@ tbody tr:nth-child(even) {
     grid-template-columns: 1.55fr 0.85fr;
     gap: 20px;
     padding: 20px;
+    align-items: start;
 }
 
 .panel-table {
@@ -803,12 +804,14 @@ tbody tr:nth-child(even) {
     border: 1px solid var(--line);
     border-radius: 10px;
     background: var(--surface);
+    min-height: 340px;
 }
 
 .panel-table table {
     width: 100%;
     min-width: 600px;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 
 .panel-table th,
@@ -828,11 +831,32 @@ tbody tr:nth-child(even) {
     letter-spacing: 0.04em;
 }
 
+.panel-table th:nth-child(1),
+.panel-table td:nth-child(1) {
+    width: 72px;
+}
+
+.panel-table th:nth-child(3),
+.panel-table td:nth-child(3) {
+    width: 150px;
+}
+
+.panel-table th:nth-child(5),
+.panel-table td:nth-child(5) {
+    width: 132px;
+}
+
+.panel-table td:nth-child(2),
+.panel-table td:nth-child(4) {
+    overflow-wrap: anywhere;
+}
+
 .panel-chart {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 16px;
+    min-height: 340px;
 }
 
 .panel-chart .pie-chart {
@@ -841,7 +865,7 @@ tbody tr:nth-child(even) {
     border-radius: 50%;
     display: grid;
     place-items: center;
-    transition: background 0.35s ease;
+    transition: background 0.18s ease;
 }
 
 .panel-chart .pie-core {
