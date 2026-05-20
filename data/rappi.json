@@ -2,16 +2,17 @@
     "processName":  "Sprint RAPPI",
     "startedAt":  "",
     "durationSeconds":  0,
-    "durationLabel":  "00:00:00",
+    "durationLabel":  "--:--:--",
     "completedAt":  "",
     "lastUpdated":  "--",
     "lastDatabaseUpdate":  "--",
+    "errorMessage":  "",
     "steps":  [
                   {
                       "step_number":  1,
                       "step_name":  "Generar y Descargar Archivo",
                       "status":  "Sin comenzar",
-                      "description":  "Ejecuta el bloque principal de generación y descarga del reporte.",
+                      "description":  "Ejecuta el bloque principal de generacion y descarga del reporte.",
                       "updated_at":  "--"
                   },
                   {
@@ -25,7 +26,7 @@
                       "step_number":  3,
                       "step_name":  "Generar Archivo",
                       "status":  "Sin comenzar",
-                      "description":  "Selecciona filtros y solicita la creación del reporte.",
+                      "description":  "Selecciona filtros y solicita la creacion del reporte.",
                       "updated_at":  "--"
                   },
                   {
